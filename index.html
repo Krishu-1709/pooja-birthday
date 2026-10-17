@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Pooja ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+:root {
+  --pink: #ffb6ce;
+  --rose: #e86b99;
+  --light: #fff5f9;
+  --text: #a65e7d;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--light);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 70px 22px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top, #fff 0%, #fff1f6 55%, #ffe2ed 100%);
+}
+
+.hero-content {
+  max-width: 720px;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 1.2s ease both;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 10px 17px;
+  border: 1px solid #f5c2d4;
+  background: #ffffffbd;
+  border-radius: 50px;
+  font-size: .85rem;
+  letter-spacing: .04em;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 11vw, 7rem);
+  line-height: 1;
+  letter-spacing: -.05em;
+  margin: 28px 0 20px;
+}
+
+h1 em, .pink {
+  color: var(--rose);
+}
+
+.hero p {
+  max-width: 520px;
+  margin: auto;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+.big-heart {
+  display: block;
+  font-size: 2.5rem;
+  margin-top: 25px;
+  animation: heartbeat 1.7s infinite;
+}
+
+.decoration {
+  position: absolute;
+  color: #ee8eaf;
+  opacity: .65;
+  animation: floatDecoration 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.d1 { top: 20%; left: 10%; font-size: 32px; }
+.d2 { top: 32%; right: 12%; font-size: 26px; animation-delay: -1s; }
+.d3 { bottom: 20%; left: 17%; font-size: 24px; animation-delay: -2s; }
+.d4 { bottom: 25%; right: 15%; font-size: 34px; animation-delay: -3s; }
+
+.scroll {
+  position: absolute;
+  bottom: 24px;
+  font-size: .75rem;
+  letter-spacing: .15em;
+  animation: floatDecoration 2s infinite;
+}
+
+section {
+  padding: 90px 22px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.label {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .75rem;
+  color: #c57a99;
+}
+
+h2 {
+  text-align: center;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  margin: 16px 0;
+  line-height: 1.15;
+}
+
+.intro {
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.9;
+  margin: 0 auto 45px;
+  color: #b07893;
+}
+
+/* Reveal elements as you scroll */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Romantic photo gallery */
+
+.gallery-section {
+  background: linear-gradient(
+    180deg,
+    #fff7fa,
+    #ffedf4,
+    #fff8fb
+  );
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  align-items: start;
+  padding: 12px 5px;
+}
+
+/* Each photo card floats continuously */
+
+.photo-card {
+  position: relative;
+  isolation: isolate;
+  padding: 10px 10px 18px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px #d77b9b25;
+  animation: floatCard 4.5s ease-in-out infinite;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+/* Animated gradient border */
+
+.photo-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 23px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    #ffd6e4,
+    #e875a0,
+    #fff4f8,
+    #f5a5c2,
+    #ffd6e4
+  );
+  z-index: -1;
+  animation: rotateBorder 5s linear infinite;
+}
+
+/* Stagger the cards so each moves differently */
+
+.photo-card:nth-child(1) {
+  rotate: -2deg;
+  animation-delay: 0s;
+}
+
+.photo-card:nth-child(2) {
+  rotate: 1.5deg;
+  animation-delay: -1.5s;
+}
+
+.photo-card:nth-child(3) {
+  rotate: -1deg;
+  animation-delay: -3s;
+}
+
+/* Hover interaction */
+
+.photo-card:hover {
+  transform: translateY(-12px) scale(1.035);
+  box-shadow: 0 25px 50px #d77b9b45;
+  z-index: 5;
+}
+
+.photo-frame {
+  height: 320px;
+  border-radius: 13px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, #ffe0eb, #fff4f8);
+  border: 1px solid #f8d2e0;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  animation: photoZoom 8s ease-in-out infinite alternate;
+  transition: filter .5s ease;
+}
+
+.photo-card:hover img {
+  animation-play-state: paused;
+  filter: saturate(1.12);
+}
+
+/* A beam of light glides over the photos */
+
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 25%,
+    #ffffff70 48%,
+    transparent 70%
+  );
+  transform: translateX(-130%);
+  animation: photoShine 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.photo-card:nth-child(2) .photo-frame::after {
+  animation-delay: 1.5s;
+}
+
+.photo-card:nth-child(3) .photo-frame::after {
+  animation-delay: 3s;
+}
+
+.photo-caption {
+  text-align: center;
+  padding: 16px 4px 0;
+  font: italic 1.1rem 'Playfair Display', serif;
+  color: #c16c90;
+}
+
+.photo-caption small {
+  display: block;
+  font: .7rem 'DM Sans', sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #d18aa5;
+  margin-top: 7px;
+}
+
+.photo-tip {
+  text-align: center;
+  line-height: 1.8;
+  font-size: .85rem;
+  margin-top: 35px;
+  color: #bf819b;
+}
+
+/* Birthday message */
+
+.letter-section {
+  background: #fffafb;
+}
+
+.letter {
+  max-width: 730px;
+  margin: auto;
+  padding: clamp(28px, 6vw, 55px);
+  background: white;
+  border: 1px solid #f5d2df;
+  border-radius: 25px;
+  box-shadow: 0 18px 55px #d77b9b15;
+  position: relative;
+}
+
+.letter::after {
+  content: "♡";
+  position: absolute;
+  top: 12px;
+  right: 22px;
+  font-size: 2rem;
+  color: #f2a5c0;
+}
+
+.letter p {
+  font: 1.15rem/1.95 'Playfair Display', serif;
+  color: #a66c86;
+}
+
+.signature {
+  color: var(--rose) !important;
+  font-style: italic !important;
+}
+
+.birthday-section {
+  text-align: center;
+  background: linear-gradient(180deg, #fff2f7, #fff8fb);
+}
+
+.birthday-card {
+  max-width: 720px;
+  margin: auto;
+  padding: 55px 25px;
+  border-radius: 32px;
+  border: 1px solid #f5c8d9;
+  background: linear-gradient(145deg, #fff, #fff0f6);
+  box-shadow: 0 20px 65px #d77b9b15;
+}
+
+.cake {
+  display: block;
+  font-size: 3.5rem;
+  animation: floatDecoration 3s ease-in-out infinite;
+}
+
+.birthday-card p {
+  max-width: 500px;
+  margin: auto;
+  line-height: 1.9;
+}
+
+button {
+  margin-top: 28px;
+  padding: 15px 24px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  background: #e86b99;
+  box-shadow: 0 8px 25px #e86b9940;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+
+button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #e86b9955;
+}
+
+.secret {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height .8s, opacity .8s, margin .8s;
+  font: italic 1.2rem/1.8 'Playfair Display', serif;
+  color: #d45e8b;
+}
+
+.secret.show {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  background: #fff7fa;
+  color: #c17b98;
+  font-size: .85rem;
+}
+
+.heart-particle {
+  position: fixed;
+  bottom: -40px;
+  z-index: 99;
+  pointer-events: none;
+  animation: heartRise 4s ease-out forwards;
+}
+
+/* Animations */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.2); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.12); }
+}
+
+@keyframes floatDecoration {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatCard {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+@keyframes rotateBorder {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes photoZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+@keyframes photoShine {
+  0%, 25% { transform: translateX(-130%); }
+  55%, 100% { transform: translateX(130%); }
+}
+
+@keyframes heartRise {
+  to {
+    transform: translateY(-115vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  section { padding: 70px 18px; }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: auto;
+    gap: 28px;
+  }
+
+  .photo-card:nth-child(1),
+  .photo-card:nth-child(2),
+  .photo-card:nth-child(3) {
+    rotate: 0deg;
+  }
+
+  .photo-frame { height: 390px; }
+
+  .d1 { left: 5%; }
+  .d2 { right: 5%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <span class="decoration d1">♡</span>
+  <span class="decoration d2">✧</span>
+  <span class="decoration d3">✦</span>
+  <span class="decoration d4">♡</span>
+
+  <div class="hero-content">
+    <span class="eyebrow">A little birthday surprise ♡</span>
+    <h1>Happy Birthday,<br><em>Pooja ✨</em></h1>
+    <p>
+      I hope your birthday is as lovely as your smile…
+      and that someone manages to make you blush at least once today. 🌸
+    </p>
+    <span class="big-heart">💗</span>
+  </div>
+
+  <div class="scroll">A LITTLE SOMETHING BELOW ↓</div>
+</header>
+
+<section class="gallery-section" id="memories">
+  <div class="container">
+    <div class="label reveal">Little snapshots, lovely memories</div>
+    <h2 class="reveal">A few moments worth keeping ♡</h2>
+    <p class="intro reveal">
+      Some photos deserve a little extra space on the page.
+      Especially when the person in them has such a lovely smile.
+    </p>
+
+    <div class="gallery">
+
+      <article class="photo-card reveal">
+        <div class="photo-frame">
+          <img src="pooja-1.jpg" alt="Pooja's photo"
+               onerror="this.alt='Photo not found';this.style.opacity='.15'">
+        </div>
+        <div class="photo-caption">
+          That lovely smile
+          <small>Quite distracting, actually 🌷</small>
+        </div>
+      </article>
+
+      <article class="photo-card reveal">
+        <div class="photo-frame">
+          <img src="pooja-2.jpg" alt="A favourite photo of Pooja"
+               onerror="this.alt='Photo not found';this.style.opacity='.15'">
+        </div>
+        <div class="photo-caption">
+          Just being you
+          <small>Effortlessly cute 🙈</small>
+        </div>
+      </article>
+
+      <article class="photo-card reveal">
+        <div class="photo-frame">
+          <img src="pooja-3.jpg" alt="Another photo of Pooja"
+               onerror="this.alt='Photo not found';this.style.opacity='.15'">
+        </div>
+        <div class="photo-caption">
+          A little favourite
+          <small>Don't let this go to your head 💕</small>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="photo-tip reveal">
+      A tiny birthday page for someone who deserves a lovely day. 💌
+    </p>
+  </div>
+</section>
+
+<section class="letter-section">
+  <div class="container">
+    <div class="label reveal">Something I wanted to say</div>
+    <h2 class="reveal">A small birthday note</h2>
+    <p class="intro reveal">
+      I was going to play it cool, but it's your birthday. ♡
+    </p>
+
+    <article class="letter reveal">
+      <p>Hey Pooja, 🌷</p>
+
+      <p>
+        Happy birthday! I hope this year brings you lots of
+        laughter, little adventures, and more reasons to smile.
+      </p>
+
+      <p>
+        Also, you have this unfairly cute smile, you know that?
+        And somehow you make being a little awkward around you
+        feel completely worth it. I was going to keep that to
+        myself… but birthday rules, I guess. 🙈
+      </p>
+
+      <p>
+        I hope today gives you a hundred reasons to smile.
+        And if you catch yourself blushing while reading this…
+        well, I might not be too sorry. 😊
+      </p>
+
+      <p class="signature">
+        Have the loveliest birthday,<br>
+        Rahul ♡
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="birthday-section">
+  <div class="container">
+    <div class="birthday-card reveal">
+      <span class="cake">🎂</span>
+      <div class="label">One last little thing</div>
+      <h2>Here's to you,<br><span class="pink">Pooja!</span></h2>
+
+      <p>
+        Wishing you pretty little moments, happy surprises,
+        and people who make you smile. Hopefully, I get to be
+        one of them sometimes. 💗
+      </p>
+
+      <button id="surpriseBtn" type="button">
+        Open your tiny surprise 💌
+      </button>
+
+      <div class="secret" id="secret">
+        Psst… you're really cute, and I may or may not have
+        smiled while making this for you. Don't let that go
+        to your head, birthday girl. 🙈💗
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with a little courage and a lot of pink ♡<br>
+  <span class="pink">— Rahul</span>
+</footer>
+
+<script>
+// Reveal sections as they enter the screen.
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach((element) => {
+  observer.observe(element);
+});
+
+// Hidden birthday message + floating hearts.
+document.getElementById('surpriseBtn').addEventListener('click', () => {
+  document.getElementById('secret').classList.add('show');
+
+  document.getElementById('surpriseBtn').textContent =
+    'Okay, one more thing 💖';
+
+  for (let i = 0; i < 24; i++) {
+    setTimeout(() => {
+      const heart = document.createElement('span');
+      heart.className = 'heart-particle';
+      heart.textContent = ['💗', '💕', '♡', '✨', '💖'][
+        Math.floor(Math.random() * 5)
+      ];
+
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (16 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5500);
+    }, i * 90);
+  }
+});
+</script>
+
+</body>
+</html>
